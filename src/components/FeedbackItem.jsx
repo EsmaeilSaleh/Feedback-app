@@ -43,8 +43,8 @@ const FeedbackItem = (props) => {
           >
             <CloseIcon />
           </IconButton>
-          <Box sx={{ margin: "0.8em" }}>
-            <Typography>Rated:</Typography>
+          <Box sx={{padding: '2em', paddingBottom: 0}}>
+            <Typography> {props.item.name} </Typography>
             <Rating value={props.item.rating} precision={0.5} readOnly max={10} />
           </Box>
           <Divider variant="middle" />

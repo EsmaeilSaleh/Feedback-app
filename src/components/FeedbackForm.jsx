@@ -12,6 +12,7 @@ const FeedbackForm = () => {
   const { addFeedback, feedbackEdit, updateFeedback } =
     useContext(FeedbackContext);
 
+  const [enteredName, setEnteredName] = useState("");
   const [enteredReview, setEnteredReview] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
@@ -24,6 +25,10 @@ const FeedbackForm = () => {
       setBtnDisabled(false);
     }
   }, [feedbackEdit]);
+
+  const handleName = (e) => {
+    setEnteredName(e.target.value);
+  };
 
   const handleChange = (e) => {
     setEnteredReview(() => e.target.value);
@@ -44,6 +49,7 @@ const FeedbackForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newFeedback = {
+      name: enteredName,
       text: enteredReview,
       rating: value,
     };
@@ -87,13 +93,18 @@ const FeedbackForm = () => {
       <form onSubmit={handleSubmit}>
         <TextField
           variant="standard"
+          value={enteredName}
+          onChange={handleName}
+          placeholder="Your name"
+        />
+        <TextField
+          variant="standard"
           multiline
           value={enteredReview}
           onChange={handleChange}
           placeholder="Write a review"
           rows="3"
           fullWidth
-          focused
           label="Review: "
         />
         {message ? <p>{message}</p> : ""}
