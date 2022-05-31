@@ -105,7 +105,7 @@ const FeedbackForm = () => {
           placeholder="Write a review"
           rows="3"
           fullWidth
-          label="Review: "
+          sx={{mt: '0.8em'}}
         />
         {message ? <p>{message}</p> : ""}
         <Button
