@@ -9,7 +9,8 @@ import Rating from "@mui/material/Rating";
 import FeedbackContext from "../context/FeedbackContext";
 
 const FeedbackForm = () => {
-  const { addFeedback, feedbackEdit } = useContext(FeedbackContext);
+  const { addFeedback, feedbackEdit, updateFeedback } =
+    useContext(FeedbackContext);
 
   const [enteredReview, setEnteredReview] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
@@ -46,10 +47,17 @@ const FeedbackForm = () => {
       text: enteredReview,
       rating: value,
     };
-    addFeedback(newFeedback);
-    setBtnDisabled(true);
-    setEnteredReview("");
-    setValue(0);
+    if (feedbackEdit.edit) {
+      updateFeedback(feedbackEdit.item.id, newFeedback);
+      setBtnDisabled(true);
+      setEnteredReview("");
+      setValue(0);
+    } else {
+      addFeedback(newFeedback);
+      setBtnDisabled(true);
+      setEnteredReview("");
+      setValue(0);
+    }
   };
 
   return (
