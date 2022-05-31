@@ -78,7 +78,7 @@ const FeedbackForm = () => {
        How would you rate This app?
       </Typography>
       <Rating
-        precision={0.5}
+        precision={1}
         max={10}
         value={value}
         onChange={(event, newVal) => {
