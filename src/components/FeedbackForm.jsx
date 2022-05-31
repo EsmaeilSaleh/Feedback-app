@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import TextField from "@mui/material/TextField";
 import Card from "@mui/material/Card";
@@ -6,7 +6,11 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Rating from "@mui/material/Rating";
 
-const FeedbackForm = ({ addFeedback }) => {
+import FeedbackContext from "../context/FeedbackContext";
+
+const FeedbackForm = () => {
+  const { addFeedback } = useContext(FeedbackContext);
+
   const [enteredReview, setEnteredReview] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
@@ -22,7 +26,7 @@ const FeedbackForm = ({ addFeedback }) => {
     } else if (value < 0.5) {
       setBtnDisabled(true);
       setMessage("Please give a Rate too!");
-} else if (enteredReview.length > 10 && value > 0.5) {
+    } else if (enteredReview.length > 10 && value > 0.5) {
       setBtnDisabled(false);
       setMessage(null);
     }
@@ -57,10 +61,10 @@ const FeedbackForm = ({ addFeedback }) => {
         onChange={(event, newVal) => {
           console.log(newVal);
           setValue(newVal);
-          if(enteredReview.length > 10) {
-          setBtnDisabled(false)
-          }else if (enteredReview === '') {
-          setMessage("Please add a review too!")
+          if (enteredReview.length > 10) {
+            setBtnDisabled(false);
+          } else if (enteredReview === "") {
+            setMessage("Please add a review too!");
           }
         }}
       />

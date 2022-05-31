@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import Card from "@mui/material/Card";
 import Badge from "@mui/material/Badge";
@@ -6,8 +6,11 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 
+import FeedbackContext from '../context/FeedbackContext'
+
 const FeedbackItem = (props) => {
 
+const { deleteFeedback } = useContext(FeedbackContext)
 
   return (
     <>
@@ -26,7 +29,7 @@ const FeedbackItem = (props) => {
           }}
         >
        <IconButton
-       onClick={() => props.handleDelete(props.item.id, props.item.rating)}
+       onClick={() => deleteFeedback(props.item.id, props.item.rating)}
        sx={{ position: 'absolute', right: 0 }}>
             <CloseIcon />
           </IconButton>

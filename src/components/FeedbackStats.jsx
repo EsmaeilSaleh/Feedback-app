@@ -1,6 +1,10 @@
 import Grid from '@mui/material/Grid';
+import { useContext } from 'react'
 
-const FeedbackStats = ({ feedback }) => {
+import FeedbackContext from '../context/FeedbackContext'
+
+const FeedbackStats = () => {
+const { feedback } = useContext(FeedbackContext)
 // Calculate ratings average
 let average = feedback.reduce((acc, cur) => {
     return acc + cur.rating

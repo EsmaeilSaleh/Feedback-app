@@ -6,39 +6,34 @@ import "./App.css";
 import Header from "./components/Header";
 import FeedbackList from "./components/FeedbackList";
 import FeedbackData from "./data/FeedbackData";
-import FeedbackStats from './components/FeedbackStats'
-import FeedbackForm from './components/FeedbackForm'
+import FeedbackStats from "./components/FeedbackStats";
+import FeedbackForm from "./components/FeedbackForm";
+import AboutIconLink from "./components/AboutIconLink";
+import { FeedbackProvider } from "./context/FeedbackContext";
 
 const App = () => {
-  const [feedback, setFeedback] = useState(FeedbackData);
 
-  const deleteFeedback = (id, rating) => {
-    if (window.confirm(`Are you Sure you want to delete ${rating}?`)) {
-      setFeedback(feedback.filter((item) => item.id !== id));
-    }
-  };
 
-const handleAddFeedback = (newFeedback) => {
-
-setFeedback([newFeedback, ...feedback])
-}
 
   return (
-    <Container
-      sx={{
-        width: '53em',
-        my: 10,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
-      <Header />
-      <h1>My App</h1>
-      <FeedbackForm addFeedback={handleAddFeedback}/>
-      <FeedbackStats feedback={feedback}/>
-      <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
-    </Container>
+    <FeedbackProvider>
+      <Container
+        sx={{
+          width: "53em",
+          my: 10,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Header />
+        <h1>My App</h1>
+        <FeedbackForm />
+        <FeedbackStats />
+        <FeedbackList />
+        <AboutIconLink />
+      </Container>
+    </FeedbackProvider>
   );
 };
 
