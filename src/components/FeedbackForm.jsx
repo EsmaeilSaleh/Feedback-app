@@ -75,7 +75,7 @@ const FeedbackForm = () => {
           color: "#c1c1c1",
         }}
       >
-        How would you rate your service with us?
+       How would you rate This app?
       </Typography>
       <Rating
         precision={0.5}
