@@ -41,6 +41,7 @@ const FeedbackForm = () => {
     addFeedback(newFeedback);
     setBtnDisabled(true);
     setEnteredReview("");
+    setValue(0);
   };
 
   return (
@@ -59,7 +60,6 @@ const FeedbackForm = () => {
         max={10}
         value={value}
         onChange={(event, newVal) => {
-          console.log(newVal);
           setValue(newVal);
           if (enteredReview.length > 10) {
             setBtnDisabled(false);
