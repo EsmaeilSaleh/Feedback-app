@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import TextField from "@mui/material/TextField";
 import Card from "@mui/material/Card";
@@ -9,12 +9,20 @@ import Rating from "@mui/material/Rating";
 import FeedbackContext from "../context/FeedbackContext";
 
 const FeedbackForm = () => {
-  const { addFeedback } = useContext(FeedbackContext);
+  const { addFeedback, feedbackEdit } = useContext(FeedbackContext);
 
   const [enteredReview, setEnteredReview] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
   const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (feedbackEdit.edit) {
+      setEnteredReview(feedbackEdit.item.text);
+      setValue(feedbackEdit.item.rating);
+      setBtnDisabled(false);
+    }
+  }, [feedbackEdit]);
 
   const handleChange = (e) => {
     setEnteredReview(() => e.target.value);

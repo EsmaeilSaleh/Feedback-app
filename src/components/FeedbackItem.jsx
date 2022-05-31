@@ -5,12 +5,12 @@ import Badge from "@mui/material/Badge";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import EditIcon from "@mui/icons-material/Edit";
 
-import FeedbackContext from '../context/FeedbackContext'
+import FeedbackContext from "../context/FeedbackContext";
 
 const FeedbackItem = (props) => {
-
-const { deleteFeedback } = useContext(FeedbackContext)
+  const { deleteFeedback, editFeedback } = useContext(FeedbackContext);
 
   return (
     <>
@@ -25,12 +25,19 @@ const { deleteFeedback } = useContext(FeedbackContext)
             borderRadius: "10px",
             width: "50em",
             my: "0.6em",
-            display: 'relative',
+            display: "relative",
           }}
         >
-       <IconButton
-       onClick={() => deleteFeedback(props.item.id, props.item.rating)}
-       sx={{ position: 'absolute', right: 0 }}>
+          <IconButton
+            onClick={() => editFeedback(props.item)}
+            sx={{ position: "absolute", right: '5%' }}
+          >
+            <EditIcon />
+          </IconButton>
+          <IconButton
+            onClick={() => deleteFeedback(props.item.id, props.item.rating)}
+            sx={{ position: "absolute", right: 0 }}
+          >
             <CloseIcon />
           </IconButton>
           <Typography
