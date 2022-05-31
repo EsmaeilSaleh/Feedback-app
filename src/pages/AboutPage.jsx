@@ -10,11 +10,7 @@ const AboutPage = () => {
       <h2>AboutPage</h2>
       <Card sx={{ padding: '1em' }}>
         <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet.
+        Hello, My Name is Esmaeil Saleh. I am a front-end React developer. This is one of my projects which is done using reactjs and mui.
         </p>
         <p> version: 1.0.0</p>
         <Link to='/'>Back to Home</Link>
