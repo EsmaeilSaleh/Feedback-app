@@ -46,7 +46,7 @@ name: 'Esmaeil',
 
   // Delete feedback
   const deleteFeedback = (id, rating) => {
-    if (window.confirm(`Are you Sure you want to delete ${rating}?`)) {
+    if (window.confirm(`Are you Sure you want to delete this review?`)) {
       setFeedback(feedback.filter((item) => item.id !== id));
     }
   };
