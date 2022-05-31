@@ -6,6 +6,9 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import EditIcon from "@mui/icons-material/Edit";
+import Rating from "@mui/material/Rating";
+import Box from "@mui/material/Box";
+import Divider from '@mui/material/Divider';
 
 import FeedbackContext from "../context/FeedbackContext";
 
@@ -30,7 +33,7 @@ const FeedbackItem = (props) => {
         >
           <IconButton
             onClick={() => editFeedback(props.item)}
-            sx={{ position: "absolute", right: '5%' }}
+            sx={{ position: "absolute", right: "5%" }}
           >
             <EditIcon />
           </IconButton>
@@ -40,6 +43,11 @@ const FeedbackItem = (props) => {
           >
             <CloseIcon />
           </IconButton>
+          <Box sx={{ margin: "0.8em" }}>
+            <Typography>Rated:</Typography>
+            <Rating value={props.item.rating} precision={0.5} readOnly max={10} />
+          </Box>
+          <Divider variant="middle" />
           <Typography
             sx={{
               backgroundColor: "inherit",
