@@ -95,7 +95,7 @@ const FeedbackForm = () => {
           variant="standard"
           value={enteredName}
           onChange={handleName}
-          placeholder="Your name"
+          placeholder="Your name(Optional)"
         />
         <TextField
           variant="standard"

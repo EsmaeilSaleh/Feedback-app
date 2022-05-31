@@ -9,6 +9,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
 import Divider from '@mui/material/Divider';
+import Container from '@mui/material/Container';
 
 import FeedbackContext from "../context/FeedbackContext";
 
@@ -16,7 +17,7 @@ const FeedbackItem = (props) => {
   const { deleteFeedback, editFeedback } = useContext(FeedbackContext);
 
   return (
-    <>
+    <Container >
       <Badge
         badgeContent={props.item.rating}
         color="primary"
@@ -26,14 +27,14 @@ const FeedbackItem = (props) => {
           sx={{
             backgroundColor: "#858585",
             borderRadius: "10px",
-            width: "50em",
+            width: {xs: '20em', sm: '32em', md: '42em'},
             my: "0.6em",
             display: "relative",
           }}
         >
           <IconButton
             onClick={() => editFeedback(props.item)}
-            sx={{ position: "absolute", right: "5%" }}
+            sx={{ position: "absolute", right: {xs: '8%', md: "5%"  }}}
           >
             <EditIcon />
           </IconButton>
@@ -59,7 +60,7 @@ const FeedbackItem = (props) => {
           </Typography>
         </Card>
       </Badge>
-    </>
+    </Container>
   );
 };
 

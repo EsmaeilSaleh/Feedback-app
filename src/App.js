@@ -11,14 +11,11 @@ import AboutIconLink from "./components/AboutIconLink";
 import { FeedbackProvider } from "./context/FeedbackContext";
 
 const App = () => {
-
-
-
   return (
     <FeedbackProvider>
       <Container
+        maxWidth="sm"
         sx={{
-          width: "53em",
           my: 10,
           display: "flex",
           flexDirection: "column",
