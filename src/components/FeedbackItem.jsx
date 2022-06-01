@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 
 import Card from "@mui/material/Card";
-import Badge from "@mui/material/Badge";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
