@@ -17,30 +17,25 @@ const FeedbackItem = (props) => {
   const { deleteFeedback, editFeedback } = useContext(FeedbackContext);
 
   return (
-    <Container >
-      <Badge
-        badgeContent={props.item.rating}
-        color="primary"
-        anchorOrigin={{ vertical: "top", horizontal: "left" }}
-      >
+    <Container maxWidth="lg" >
         <Card
           sx={{
             backgroundColor: "#858585",
             borderRadius: "10px",
-            width: {xs: '20em', sm: '32em', md: '42em'},
+            width: {xs: '20em', sm: '35em', md: '40em'},
             my: "0.6em",
             display: "relative",
           }}
         >
           <IconButton
             onClick={() => editFeedback(props.item)}
-            sx={{ position: "absolute", right: {xs: '8%', md: "5%"  }}}
+            sx={{ position: "absolute", right: {xs: '14%', sm: "30%", md: '31%'  }}}
           >
             <EditIcon />
           </IconButton>
           <IconButton
             onClick={() => deleteFeedback(props.item.id, props.item.rating)}
-            sx={{ position: "absolute", right: 0 }}
+            sx={{ position: "absolute", right: {xs: '5%', sm: "20%", md: '28%'} }}
           >
             <CloseIcon />
           </IconButton>
@@ -59,7 +54,6 @@ const FeedbackItem = (props) => {
             {props.item.text}
           </Typography>
         </Card>
-      </Badge>
     </Container>
   );
 };
