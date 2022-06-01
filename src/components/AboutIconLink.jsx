@@ -10,7 +10,7 @@ const AboutIconLink = () => {
     <Box
       sx={{
         position: "sticky",
-        bottom: { xs: '10%', sm: '20%' },
+        bottom: '5%',
         mr: { xs: "-90%", sm: "-110%", md: "-140%" },
         zIndex: "2",
       }}
@@ -19,7 +19,7 @@ const AboutIconLink = () => {
         <HelpIcon
           fontSize="large"
           color="primary"
-          sx={{ fontSize: { xs: "4em", sm: "5em", md: "6em" } }}
+          sx={{ color: 'rgba(12,12,12,0.6)', fontSize: { xs: "4em", sm: "5em", md: "6em" } }}
         />
       </Link>
     </Box>
