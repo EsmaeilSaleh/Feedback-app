@@ -4,13 +4,23 @@ const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [feedback, setFeedback] = useState([]);
+  const [feedback, setFeedback] = useState([
+    {
+      id: 1,
+      name: "Esmaeil Saleh",
+      text: "You are going fast",
+      rating: 10,
+    },
+  ]);
   const [feedbackEdit, setFeedbackEdit] = useState({
     item: {},
     edit: false,
   });
 
   useEffect(() => {
+    if (feedback.length !== 0) {
+      setIsLoading(false);
+    }
     fetchFeedback();
   }, []);
 
@@ -23,7 +33,7 @@ export const FeedbackProvider = ({ children }) => {
       },
       body: JSON.stringify(updItem),
     });
-const data = await response.json()
+    const data = await response.json();
     setFeedback(
       feedback.map((item) => (item.id === id ? { ...item, ...data } : item))
     );
