@@ -67,7 +67,7 @@ const FeedbackForm = () => {
   };
 
   return (
-    <Card sx={{ backgroundColor: "gray", padding: "12px" }}>
+    <Card sx={{ width:{ xs: '18em', sm: "35em"}, backgroundColor: "gray", padding: "12px" }}>
       <Typography
         variant="h5"
         sx={{
@@ -75,7 +75,7 @@ const FeedbackForm = () => {
           color: "#c1c1c1",
         }}
       >
-       How would you rate This app?
+        How would you rate This app?
       </Typography>
       <Rating
         precision={1}
@@ -105,7 +105,7 @@ const FeedbackForm = () => {
           placeholder="Write a review"
           rows="3"
           fullWidth
-          sx={{mt: '0.8em'}}
+          sx={{ mt: "0.8em" }}
         />
         {message ? <p>{message}</p> : ""}
         <Button
