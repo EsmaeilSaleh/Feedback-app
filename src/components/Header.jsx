@@ -18,7 +18,7 @@ const Header = ({ text }) => {
               fontWeight: "700",
             }}
           >
-        <Link to="/" underline="none">
+        <Link to="/" style={{color: '#989898', textDecoration: 'none'}}>
             {text}
         </Link>
           </Typography>
